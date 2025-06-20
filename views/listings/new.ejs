@@ -1,0 +1,44 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+<div class="row mt-2">
+    <div class="col-8 offset-2">
+        <br>
+    <h3>Create a New Listing</h3>
+    <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">  <!--here enctype="multipart/form-data" is use for send file formate data in form-->
+        <div class="mb-3">
+            <label for="title" class="form-lable">Title</label>
+            <input type="text" placeholder="Add a catchy title" name="listing[title]" class="form-control" required>
+             <div class="valid-feedback">Title looks good!</div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-lable">Description</label>
+            <textarea name="listing[description]" id="description" class="form-control" required></textarea>
+            <div class="invalid-feedback">Please enter a short description!</div>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-lable">Upload Listing Image</label>
+            <input type="file"  name="listing[image]" class="form-control" id="image" required>                     <!--Here multer package npm i multer is use for uncode data -->
+        </div>                                                                                              <!--use cloudinary as third party website to store images-->
+        <div class="row">                                                                                  <!-- here use npm i cloudinary and npm install multer-storage-cloudinary --legacy-peer-deps for use cloudianry services better -->     
+        <div class="mb-3 col-md-4">
+            <label for="price" class="form-lable">Price</label>
+            <input  name="listing[price]" class="form-control" placeholder="1200" id="price" required>
+            <div class="invalid-feedback">Price should be valid!</div>
+        </div>
+        <div class="mb-3 col-md-8">
+            <label for="country" class="form-lable">country</label>
+            <input type="text" name="listing[country]" placeholder="India" class="form-control" required>
+            <div class="invalid-feedback">Country name should be valid!</div>
+        </div>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-lable">location</label>
+            <input type="text" name="listing[location]" id="location" placeholder="Jaipur,Rajasthan" class="form-control" required>
+            <div class="invalid-feedback">Location name should be valid!</div>
+        </div>
+        <button class="btn btn-dark add-btn mt-3">Add</button>
+    </form>
+    <br>
+    </div>
+</div>
+</body>
